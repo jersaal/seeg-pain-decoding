@@ -1,0 +1,13 @@
+# Participant data are available on request and are not tracked (see
+# data/README.md). Remove the next two lines to version the data folders.
+data/*
+!data/README.md
+
+# Analysis outputs
+results/
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.DS_Store

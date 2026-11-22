@@ -1,0 +1,60 @@
+# Analysis configuration for
+# "Decoding chronic pain states from distributed intracranial recordings".
+#
+# Every parameter that defines an analysis in the manuscript lives here.
+# Paths are resolved relative to this file unless they are absolute.
+
+data_dir: data          # one folder per participant; see data/README.md
+results_dir: results    # created on first run
+
+# Participant labels, as in the manuscript; each has a folder in data_dir.
+participants: [P1, P2, P3, P4, P5, P6]
+
+frequency_bands: [delta, theta, alpha, beta, low_gamma, high_gamma]
+
+random_seed: 42
+n_workers: null         # worker processes for permutation tests; null = all cores
+alpha: 0.05
+
+# High/low pain labels: surveys at or below the lower threshold are "low",
+# at or above the upper threshold are "high", the rest are excluded. The
+# thresholds are the order statistics at these fractions of the sorted ratings.
+pain_labels:
+  low_fraction: 0.33
+  high_fraction: 0.66
+
+multivariate:
+  n_trees: 500
+  n_permutations: 1000
+  n_importance_repeats: 30    # shuffles per feature and fold (permutation importance)
+  min_train_surveys: 10       # folds with fewer training surveys are discarded
+  buffer_days: 1              # one-day-buffer control
+  n_bootstrap: 10000          # resamples of folds for confidence intervals
+  variance_explained: 0.95    # effective dimensionality criterion
+
+regression:
+  min_test_surveys: 5         # a within-fold correlation needs at least this many
+
+univariate:
+  n_permutations: 1000
+  top_n_features: 10          # directionality summary
+  min_participants_per_region: 3
+
+temporal:
+  n_bootstrap: 1000
+  n_permutations: 1000        # between-day variance share null
+  min_pairs: 10               # survey pairs needed to estimate a lag bin
+
+network:
+  n_parcels: 400              # Schaefer atlas resolution (Yeo 7-network labels)
+  max_distance_mm: 7          # contact to nearest parcel centroid
+  min_contacts: 5             # per network, to be tested
+  n_permutations: 10000
+  sensitivity:                # [n_parcels, max_distance_mm]; Supplementary Table 4
+    - [400, 5]
+    - [400, 7]
+    - [400, 10]
+    - [200, 7]
+    - [1000, 7]
+  jitter_mm: [2, 3]           # coordinate displacement control
+  n_jitter: 1000
