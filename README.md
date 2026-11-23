@@ -67,12 +67,10 @@ Installation takes a few minutes.
 
 ## Data
 
-Participant data are not included. The de-identified processed data are
-available from the corresponding author upon reasonable request (see the Data
-availability statement of the manuscript). They come as one folder per
-participant (`P1` to `P6`, about 8 MB in total); copy these folders into
-`data/` and the repository is self-contained. `data/README.md` describes the
-files. To keep the data elsewhere, set `data_dir` in `config.yaml`.
+The de-identified processed data are included in `data/`, as one folder per
+participant (`P1` to `P6`, about 8 MB in total), so the repository is
+self-contained. `data/README.md` describes the files. To keep the data
+elsewhere, set `data_dir` in `config.yaml`.
 
 ## Usage
 

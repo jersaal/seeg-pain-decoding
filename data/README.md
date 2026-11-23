@@ -1,12 +1,8 @@
 # Data
 
-The de-identified processed data are available from the corresponding author
-upon reasonable request, as stated in the manuscript. They contain only what
-the analysis uses: no dates, no clock times and no identifiers other than
-the participant labels of the manuscript.
-
-Copy the participant folders here (or point `data_dir` in `config.yaml`
-elsewhere):
+The de-identified processed data of the six participants. They contain only
+what the analysis uses: no dates, no clock times and no identifiers other
+than the participant labels of the manuscript.
 
 ```
 data/
