@@ -204,10 +204,6 @@ tests/                    unit tests on synthetic data
 data/README.md            description of the data files
 ```
 
-## Citation
-
-If you use this code, please cite the article above (see `CITATION.cff`).
-
 ## License
 
 MIT; see `LICENSE`.
